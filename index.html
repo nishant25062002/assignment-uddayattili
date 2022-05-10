@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Trades</title>
+
+    <style>
+        /* poppins font size */
+        @font-face {
+            font-family: "Poppins";
+            src: url(https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* class*/
+        .navbar {
+            display: flex;
+            height: 70px;
+            justify-content: space-around;
+            align-items: center;
+            box-shadow: 0px 2px 4px 0px #60617029;
+        }
+
+        .nav1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav1>img {
+            display: flex;
+            height: 40px;
+            width: 40px;
+            margin-right: 10px;
+        }
+
+        .button {
+            display: flex;
+            border: 1px solid #2D154A;
+            border-radius: 4px;
+            height: fit-content;
+            padding: 6px 15px;
+            margin: 0 10px;
+            color: #6200EE;
+        }
+
+        .active_button {
+            background: #6200EE;
+            border: none;
+            padding: 7px 15px;
+            color: white;
+        }
+
+        .firstPage_row {
+            display: flex;
+            justify-content: center;
+            padding-top: 6vh;
+        }
+
+        .firstPage_Text {
+            display: flex;
+            flex-direction: column;
+            width: 512px;
+            padding-top: 6vh;
+            padding-right: 2vw;
+        }
+
+        .firstPage_head {
+            display: flex;
+            font-weight: 700;
+            font-size: 64px;
+            line-height: 82px;
+            letter-spacing: -0.01em;
+            color: #1C1C28;
+        }
+
+        .firstPage_Text>p {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 24px;
+            color: #1C1C28;
+            padding: 20px 0 25px 0;
+        }
+
+        .firstPage_Text>button {
+            font-weight: 500;
+            font-size: 25.1594px;
+            line-height: 29px;
+            text-align: center;
+            letter-spacing: 2.24638px;
+            text-transform: capitalize;
+            color: #FFFFFF;
+            background: #6200EE;
+            border-radius: 7.18841px;
+            border: none;
+            outline: none;
+            padding: 12px 20px;
+            width: fit-content;
+        }
+
+        .firstPage_Img {
+            height: 450px;
+            width: 550px;
+        }
+
+        .firstPage_Scroll {
+            position: absolute;
+            bottom: 10vh;
+            right: 10vw;
+        }
+
+        .firstPage_Scroll>img {
+            height: 40px;
+        }
+
+        /* second */
+        .secondDiv {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 25vh 0 15vh 0;
+        }
+
+        .secondDiv_head {
+            display: flex;
+            width: fit-content;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 40px;
+            line-height: 54px;
+            color: #1C1C28;
+            padding-bottom: 4vh;
+        }
+
+        .boxes {
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px 10vw;
+        }
+
+        .box {
+            display: flex;
+            flex-direction: column;
+            /* font-family: 'Poppins'; */
+            font-style: normal;
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 54px;
+            width: 156px;
+            text-align: center;
+            color: #1C1C28;
+        }
+
+        .box>img {
+            width: 180px;
+            height: 182px;
+        }
+
+        .box>p {
+            /* font-family: 'Poppins'; */
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 24px;
+            text-align: center;
+            color: #1C1C28;
+        }
+
+        .thirdDiv {
+            display: flex;
+            justify-content: center;
+            padding-top: 10vh;
+        }
+
+        .third_text {
+            display: flex;
+            flex-direction: column;
+            width: 500px;
+            padding-top: 8vh;
+        }
+
+        .third_text_p {
+            padding-left: 10vw;
+        }
+
+        .third_text>img {
+            height: 60px;
+            width: 87px;
+        }
+
+        .third_text>h6 {
+            font-weight: 500;
+            font-size: 40px;
+            line-height: 54px;
+            color: #1C1C28;
+            width: 336px;
+        }
+
+        .third_text>p {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 24px;
+            color: #1C1C28;
+            width: 336px;
+        }
+
+        .coloured_Sec {
+            display: flex;
+            flex-direction: column;
+            background: #F5F5FD;
+            padding: 40px 0;
+        }
+
+        .coloured_Sec>h4 {
+            font-weight: 500;
+            font-size: 40px;
+            line-height: 54px;
+            color: #1C1C28;
+        }
+
+        .coloured_Sec>p {
+            /* font-family: 'Poppins'; */
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 24px;
+            color: #1C1C28;
+        }
+
+        .coloured_Div {
+            display: flex;
+            align-items: center;
+        }
+
+        .coloured_Div>h4 {
+            display: flex;
+            font-size: 40px;
+        }
+
+        .coloured_SecDiv {
+            display: flex;
+            height: fit-content;
+            justify-content: space-around;
+        }
+
+
+        .coloured_SecIn {
+            padding-left: 10vw;
+        }
+
+        .coloured_SecDiv {
+            display: flex;
+            align-items: center;
+            padding-top: 50px;
+        }
+
+        .coloured_SecIn>h4 {
+            display: flex;
+            font-weight: 500;
+            font-size: 40px;
+            line-height: 54px;
+            color: #1C1C28;
+        }
+
+        .coloured_SecIn>P {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 24px;
+            color: #1C1C28;
+        }
+
+        .coloured_SecDiv>button {
+            font-weight: 500;
+            font-size: 21.0085px;
+            line-height: 24px;
+            text-align: center;
+            letter-spacing: 1.87576px;
+            text-transform: capitalize;
+            color: #FFFFFF;
+            height: fit-content;
+            background: #6200EE;
+            border-radius: 6.00244px;
+            outline: none;
+            border: none;
+            padding: 8px 16px;
+        }
+
+        .about {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 70px 0 90px;
+        }
+
+        .about>h5 {
+            font-weight: 500;
+            font-size: 40px;
+            line-height: 54px;
+            color: #1C1C28;
+            padding-bottom: 30px;
+        }
+
+        .about>p {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 24px;
+            color: #1C1C28;
+            width: 688px;
+        }
+
+        .footer {
+            display: flex;
+            flex-direction: column;
+            background-color: #1B1A1E;
+            color: white;
+            padding: 28px 0 45px 0;
+        }
+
+        .footer_text {
+            display: flex;
+            color: white;
+        }
+
+        .footer_div {
+            display: flex;
+            justify-content: space-around;
+            padding: 12px;
+        }
+
+        .footer_1text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer_1text>img {
+            width: 105px;
+            padding-left: 12px;
+        }
+
+        .border {
+            border-bottom: 2px solid lightgray;
+            margin: 0 20vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="nav1">
+            <img src="https://st2.depositphotos.com/1024516/7327/v/950/depositphotos_73272453-stock-illustration-vector-logo-for-letter-t.jpg"
+                alt="">
+            <b>Track Trades</b>
+        </div>
+        <div class="nav1">
+            <div class="button">Login</div>
+            <div class="button active_button">Connect Broker</div>
+        </div>
+    </div>
+
+    <!-- first page -->
+    <div class="firstPage">
+        <div class="firstPage_row">
+            <div class="firstPage_Text">
+                <div class="firstPage_head">
+                    The modern way to journal
+                </div>
+                <p>TrackTrades is the only tool you would require to journal, sync and analyze your trades. Improve and
+                    trade better using the deep insights we provide.</p>
+                <button>Get started</button>
+            </div>
+            <div>
+                <img class="firstPage_Img" src="/img/first.png" alt="">
+            </div>
+        </div>
+        <div class="firstPage_Scroll">
+            <img src="/img/scroll.png" alt="">
+        </div>
+
+        <!-- sec two -->
+        <div class="secondDiv">
+            <div class="secondDiv_head">
+                How it works
+            </div>
+            <div class="boxes">
+                <div class="box">
+                    <img src="/img/connect.png" alt="">
+                    <h6>Connect</h6>
+                    <p>Connect TrackTrades using your broker account</p>
+                </div>
+                <div class="box">
+                    <img src="/img/computer.png" alt="">
+                    <h6>Journal</h6>
+                    <p>Journal your strategies, pre and post market analysis.</p>
+                </div>
+                <div class="box">
+                    <img src="/img/analyze.png" alt="">
+                    <h6>Analyze</h6>
+                    <p>Analyze your performance with metrics we derive</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="border"></div>
+
+    <!-- third sec -->
+    <div class="thirdDiv">
+        <div class="third_text">
+            <img src="/img/journal.png" alt="">
+            <h6>Simple, yet powerful editor</h6>
+            <p>Create beautiful journals using Headings, Paragraphs, Lists, Alerts and even Images.</p>
+        </div>
+        <img class="firstPage_Img" src="/img/first.png" alt="">
+    </div>
+
+    <!-- fourth sec -->
+    <div class="thirdDiv">
+        <img class="firstPage_Img" src="/img/third.png" alt="">
+        <div class="third_text third_text_p">
+            <img src="/img/progess.png" alt="">
+            <h6>Simple, yet powerful editor</h6>
+            <p>Create beautiful journals using Headings, Paragraphs, Lists, Alerts and even Images.</p>
+        </div>
+    </div>
+
+    <!-- fifth sec -->
+    <div class="thirdDiv">
+        <div class="third_text">
+            <img src="/img/upload.png" alt="">
+            <h6>Imports trades in one click</h6>
+            <p>Connect your broker account and import trades automatically in just one click!</p>
+        </div>
+        <img class="firstPage_Img" src="/img/fourth.png" alt="">
+    </div>
+
+    <!-- six sec -->
+    <div class="coloured_Sec">
+        <div class="coloured_SecIn">
+            <h4>
+                Connect your broker accounts.
+            </h4>
+            <p>
+                We are working on adding more brokers!
+            </p>
+        </div>
+        <div class="coloured_SecDiv">
+            <div class="coloured_Div">
+                <img src="/img/tri.png" alt="">
+                <h4>AngelOne</h4>
+            </div>
+            <button>Connect broker</button>
+        </div>
+    </div>
+
+    <!-- about -->
+    <div class="about">
+        <h5>About us</h5>
+        <p>Hello there!! 👋 we are on a mission to provide the most powerful yet easy to use online trading journal. We
+            believe that the most important aspects of trading are psychology and mindset, that's why we have created a
+            product that would help you identify and overcome your mistakes.</p>
+    </div>
+
+    <!-- footer -->
+    <div class="footer">
+        <div class="footer_div">
+            <div class="footer_1text">
+                <b>❤️ Currently in beta</b>
+                <img src="/img/apps.png" alt="">
+            </div>
+            <div>Contact us</div>
+        </div>
+        <div class="footer_div">
+            <div class="footer_1text">Copyright © 2022 TrackTrades Inc.</div>
+            <div>
+                <b>Terms</b>
+                <b>Privacy</b>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
